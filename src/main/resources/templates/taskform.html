@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Action items</title>
+</head>
+<body>
+<form action="#" th:action="@{/process}" th:object="${task}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    Task :  <input type="text" th:field="*{taskname}" />
+    <span th:if="${#fields.hasErrors('taskname')}"
+          th:errors="*{taskname}"></span><br />
+    Due Date :  <input type="text" th:field="*{duedate}" />
+    <span th:if="${#fields.hasErrors('duedate')}"
+          th:errors="*{duedate}"></span><br />
+    Priority :  <input type="text" th:field="*{priority}" />
+    <span th:if="${#fields.hasErrors('priority')}"
+          th:errors="*{priority}"></span><br />
+<!--    No. of Credits :  <input type="text" th:field="*{credit}" />-->
+<!--    <span th:if="${#fields.hasErrors('credit')}"-->
+<!--          th:errors="*{credit}"></span><br />-->
+    <br />
+    <input type="submit" value="Submit" />
+</form>
+</body>
+</html>
